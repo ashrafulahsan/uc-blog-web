@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import Post from './Post';
 
 const BASE_URL = 'http://127.0.0.1:8000/';
 
 function App() {
 
-  const[post, setPosts] = useState([]);
+  const[posts, setPosts] = useState([]);
   
   useEffect(() => {
     fetch(BASE_URL + 'posts/all')
@@ -24,20 +25,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="blog_title">
+        <h1>My Blog</h1>
+      </div>
+      <div className="blog_posts">
+        {posts.map((p) => (
+          <Post key={p.id || p.image_url} post={p} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,16 @@
+.blog_post {
+  margin: 1rem;
+  text-align: center;
+}
+
+.post_image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.no_image {
+  color: #888;
+  font-style: italic;
+}
