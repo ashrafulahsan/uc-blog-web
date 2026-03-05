@@ -16,6 +16,10 @@ function Post({ post }) {
 
   return (
     <div className="blog_post">
+      <h2 className="post_title">{post.title}</h2>
+      <p className="post_description">{post.content}</p>
+      author: <span className="post_author">{post.author}</span>
+
       {imageUrl ? (
         <img
           className="post_image"
@@ -25,6 +29,10 @@ function Post({ post }) {
       ) : (
         <div className="no_image">No image available</div>
       )}
+      <div className="post_date">{post.created_at}</div>
+      <div className='post_delete'>
+        <button onClick={() => alert('Delete functionality not implemented yet')}>Delete</button>
+      </div>
     </div>
   );
 }
