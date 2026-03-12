@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
+import NewPost from './NewPost';
 
 const BASE_URL = 'http://127.0.0.1:8000/';
 
@@ -25,6 +26,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className="new_post_section">
+        <NewPost />
+      </div>
       <div className="blog_title">
         <h1>My Blog</h1>
       </div>

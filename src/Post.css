@@ -18,3 +18,8 @@
   color: #888;
   font-style: italic;
 }
+
+.new_post_section {
+  width: 100%;
+  float: left;
+}
