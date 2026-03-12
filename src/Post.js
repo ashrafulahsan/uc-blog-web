@@ -14,6 +14,26 @@ function Post({ post }) {
     return BASE_URL + post.image_url.replace(/^\/+/, '');
   })();
 
+  const handleDelete = (event) => {
+    event?.preventDefault()
+
+    const requestOptions = {
+      method: 'DELETE',
+    };
+
+    fetch(BASE_URL + 'posts/delete/' + post.id, requestOptions)
+      .then(response => {
+        if (response.ok) {
+          window.location.reload(); // Refresh the page after successful deletion
+        } else {
+          throw response;
+        }
+      })
+      .catch(error => {
+        console.error('Error deleting post:', error);
+      });
+  };
+
   return (
     <div className="blog_post">
       <h2 className="post_title">{post.title}</h2>
@@ -31,7 +51,7 @@ function Post({ post }) {
       )}
       <div className="post_date">{post.created_at}</div>
       <div className='post_delete'>
-        <button onClick={() => alert('Delete functionality not implemented yet')}>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
   );
